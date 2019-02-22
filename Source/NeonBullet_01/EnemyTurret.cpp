@@ -1,6 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "EnemyTurret.h"
+#include "Engine/Engine.h"
 
 // Sets default values
 AEnemyTurret::AEnemyTurret()
@@ -23,6 +24,6 @@ void AEnemyTurret::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 	MoveDirection = GetWorld()->GetFirstPlayerController()->GetPawn()->GetActorLocation() - GetActorLocation();
-	MoveDirection.Normalize(); //Smooth 
+	// MoveDirection.Normalize(); //Smooth 
 	SetActorRotation(MoveDirection.Rotation());
 }

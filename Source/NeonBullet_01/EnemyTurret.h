@@ -29,9 +29,9 @@ private:
 
 	/*How long min till turn towards player*/
 	UPROPERTY(EditAnywhere)
-		float TurnDelayMin = 1.f;
+		float TurnDelayMin = 3.f;
 
-	float CurrentTurnDelay = 2.f;
+	float CurrentTurnDelay = 5.f;
 
 
 };

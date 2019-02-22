@@ -28,4 +28,13 @@ public:
 
 	void MoveForward(float AxisValue);
 	void MoveRight(float AxisValue);
+
+	// FORCEINLINE class UdecalComponent* GetCursorToWorld() { return CursorToWorld; }
+
+private:
+	UPROPERTY(EditAnywhere, Category = "Char Func")
+	USceneComponent* OurVisibleComponent;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera", meta = (AllowPrivateAccess = "true"))
+	UDecalComponent* CursorToWorld;
 };
