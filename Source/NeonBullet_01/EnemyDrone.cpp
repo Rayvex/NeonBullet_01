@@ -1,10 +1,9 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "EnemyTurret.h"
-#include "Engine/Engine.h"
+#include "EnemyDrone.h"
 
 // Sets default values
-AEnemyTurret::AEnemyTurret()
+AEnemyDrone::AEnemyDrone()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -12,7 +11,7 @@ AEnemyTurret::AEnemyTurret()
 }
 
 // Called when the game starts or when spawned
-void AEnemyTurret::BeginPlay()
+void AEnemyDrone::BeginPlay()
 {
 	Super::BeginPlay();
 	
@@ -22,7 +21,7 @@ void AEnemyTurret::BeginPlay()
 }
 
 // Called every frame
-void AEnemyTurret::Tick(float DeltaTime)
+void AEnemyDrone::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
