@@ -35,7 +35,7 @@ void AEnemyTurret::Tick(float DeltaTime)
 	if (CurrentTurnDelay < 0.f)
 	{
 		MoveDirection = GetWorld()->GetFirstPlayerController()->GetPawn()->GetActorLocation() - GetActorLocation();
-		MoveDirection.Normalize();
+		// MoveDirection.Normalize();
 		SetActorRotation(MoveDirection.Rotation());
 
 		CurrentTurnDelay = FMath::FRandRange(TurnDelayMin, TurnDelayMax);

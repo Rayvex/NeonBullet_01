@@ -27,7 +27,7 @@ public:
 
 private:
 	UPROPERTY(EditAnywhere)
-		float Speed = 2.f;
+		float Speed = 20.f;
 
 	UPROPERTY(EditAnywhere)
 		float TurnDelayMax = 4.f;
