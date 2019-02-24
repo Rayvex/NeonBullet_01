@@ -65,6 +65,9 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+	InputComponent->BindAction("Shoot", IE_Pressed, this, &APlayerCharacter::StartShooting);
+	InputComponent->BindAction("Shoot", IE_Released, this, &APlayerCharacter::StopShooting);
+
 	InputComponent->BindAxis("MoveForward", this, &APlayerCharacter::MoveForward);
 	InputComponent->BindAxis("MoveRight", this, &APlayerCharacter::MoveRight);
 }

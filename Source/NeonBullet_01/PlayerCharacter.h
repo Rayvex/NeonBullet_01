@@ -29,6 +29,8 @@ public:
 	void MoveForward(float AxisValue);
 	void MoveRight(float AxisValue);
 
+	void FireGun();
+
 	// FORCEINLINE class UdecalComponent* GetCursorToWorld() { return CursorToWorld; }
 
 private:
