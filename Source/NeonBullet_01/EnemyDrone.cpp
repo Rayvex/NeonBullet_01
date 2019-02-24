@@ -41,3 +41,10 @@ void AEnemyDrone::Tick(float DeltaTime)
 		CurrentTurnDelay = FMath::FRandRange(TurnDelayMin, TurnDelayMax);
 	}
 }
+
+void AEnemyDrone::isHit()
+{
+	SetActorHiddenInGame(true);
+	SetActorEnableCollision(false);
+	yeetEnemy = true;
+}
