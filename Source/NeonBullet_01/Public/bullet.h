@@ -14,7 +14,7 @@ class NEONBULLET_01_API Abullet : public AActor
 
 private:
 	UPROPERTY(EditAnywhere)
-	float Speed{400.f};
+	float Speed{800.f};
 
 	UPROPERTY(EditAnywhere)
 	float TimeBeforeDestroy{5.f};

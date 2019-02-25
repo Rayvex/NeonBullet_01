@@ -36,7 +36,7 @@ void APlayerCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 
-	InputComponent->BindAction("Shoot", IE_Pressed, this, &APlayerCharacter::Shoot);
+	//InputComponent->BindAction("Shoot", IE_Pressed, this, &APlayerCharacter::Shoot);
 	
 }
 
@@ -44,7 +44,7 @@ void APlayerCharacter::BeginPlay()
 void APlayerCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
+	
 	FHitResult Hit;
 	bool HitResult = false;
 
@@ -74,6 +74,7 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 
 	InputComponent->BindAxis("MoveForward", this, &APlayerCharacter::MoveForward);
 	InputComponent->BindAxis("MoveRight", this, &APlayerCharacter::MoveRight);
+	InputComponent->BindAction("Shoot", IE_Pressed, this, &APlayerCharacter::Shoot);
 }
 
 void APlayerCharacter::MoveForward(float AxisValue)
@@ -94,10 +95,5 @@ void APlayerCharacter::MoveRight(float AxisValue)
 
 void APlayerCharacter::Shoot()
 {
-	UWorld* World = GetWorld();
-	if (World)
-	{
-		FVector Location = GetActorLocation();
-		Abullet* ActorRef =	World->SpawnActor<Abullet>(bullet_BP, Location + FVector(0.4f, 0.f, 0.f), GetActorRotation());
-	}
+	GetWorld()->SpawnActor<Abullet>(bullet_BP, GetActorLocation() + GetActorForwardVector(), GetActorRotation());
 }
