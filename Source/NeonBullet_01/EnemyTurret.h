@@ -3,6 +3,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "NeonBullet_01.h"
+#include "NeonBullet_01GameModeBase.h"
 #include "GameFramework/Actor.h"
 #include "EnemyTurret.generated.h"
 
@@ -19,21 +21,27 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	FVector MoveDirection = FVector(0.f, 0.f, 0.f);
-protected:
+
+	void isHit();
+
+	bool yeetTurret{false};
+
+	int turretHealth{4};
+
+private:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-private:
 	UPROPERTY(EditAnywhere)
-		float Speed = 0.f;
+	float Speed = 0.f;
 
 	/*How long max till turn towards player*/
 	UPROPERTY(EditAnywhere)
-		float TurnDelayMax = 5.f;
+	float TurnDelayMax = 5.f;
 
 	/*How long min till turn towards player*/
 	UPROPERTY(EditAnywhere)
-		float TurnDelayMin = 1.f;
+	float TurnDelayMin = 1.f;
 
 	float CurrentTurnDelay = 0.5f;
 

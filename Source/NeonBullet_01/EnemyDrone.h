@@ -27,6 +27,8 @@ public:
 
 	bool yeetEnemy{false};
 
+	int enemyHealth{2};
+
 private:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

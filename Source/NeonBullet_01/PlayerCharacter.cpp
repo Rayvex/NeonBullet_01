@@ -35,8 +35,6 @@ APlayerCharacter::APlayerCharacter()
 void APlayerCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-
-	//InputComponent->BindAction("Shoot", IE_Pressed, this, &APlayerCharacter::Shoot);
 	
 }
 

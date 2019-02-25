@@ -43,7 +43,13 @@ void AEnemyDrone::Tick(float DeltaTime)
 
 void AEnemyDrone::isHit()
 {
-	SetActorHiddenInGame(true);
-	SetActorEnableCollision(false);
-	yeetEnemy = true;
+	if (enemyHealth == 0)
+	{
+		SetActorHiddenInGame(true);
+		SetActorEnableCollision(false);
+		yeetEnemy = true;
+	}
+	else {
+		enemyHealth -= 1;
+	}
 }
