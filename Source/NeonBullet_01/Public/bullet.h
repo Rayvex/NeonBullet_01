@@ -19,7 +19,12 @@ private:
 	UPROPERTY(EditAnywhere)
 	float TimeBeforeDestroy{5.f};
 
-	float TimeLived{0};
+	float TimeAlive{0};
+
+	UFUNCTION()
+	void OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor *OtherActor,
+		UPrimitiveComponent *OtherComponent, int32 OtherBodyIndex,
+		bool bFromSweep, const FHitResult &SweepResult);
 
 public:	
 	// Sets default values for this actor's properties

@@ -1,6 +1,11 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "PlayerCharacter.h"
+#include "NeonBullet_01.h"
+#include "EnemyDrone.h"
+#include "bullet.h"
+#include "Kismet/GameplayStatics.h"
+#include "Engine/World.h"
 #include "Components/InputComponent.h"
 #include "Components/DecalComponent.h"
 #include "Components/CapsuleComponent.h"
@@ -30,6 +35,8 @@ APlayerCharacter::APlayerCharacter()
 void APlayerCharacter::BeginPlay()
 {
 	Super::BeginPlay();
+
+	InputComponent->BindAction("Shoot", IE_Pressed, this, &APlayerCharacter::Shoot);
 	
 }
 
@@ -82,5 +89,15 @@ void APlayerCharacter::MoveRight(float AxisValue)
 	if (AxisValue != 0.0f)
 	{
 		AddMovementInput(FVector(0.0f, 1.0f, 0.0f), AxisValue);
+	}
+}
+
+void APlayerCharacter::Shoot()
+{
+	UWorld* World = GetWorld();
+	if (World)
+	{
+		FVector Location = GetActorLocation();
+		Abullet* ActorRef =	World->SpawnActor<Abullet>(bullet_BP, Location + FVector(0.4f, 0.f, 0.f), GetActorRotation());
 	}
 }

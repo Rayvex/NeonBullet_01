@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "bullet.h"
 #include "GameFramework/Character.h"
 #include "PlayerCharacter.generated.h"
 
@@ -23,6 +24,8 @@ public:
 
 	void MoveForward(float AxisValue);
 	void MoveRight(float AxisValue);
+	void Shoot();
+	void keepShooting();
 
 	// FORCEINLINE class UdecalComponent* GetCursorToWorld() { return CursorToWorld; }
 
@@ -35,4 +38,7 @@ private:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera", meta = (AllowPrivateAccess = "true"))
 	UDecalComponent* CursorToWorld;
+
+	UPROPERTY(EditDefaultsOnly)
+	TSubclassOf<Abullet> bullet_BP;
 };
