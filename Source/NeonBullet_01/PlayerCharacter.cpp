@@ -1,6 +1,12 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "PlayerCharacter.h"
+#include "NeonBullet_01.h"
+#include "EnemyDrone.h"
+#include "bullet.h"
+#include "EnemyBullet.h"
+#include "Kismet/GameplayStatics.h"
+#include "Engine/World.h"
 #include "Components/InputComponent.h"
 #include "Components/DecalComponent.h"
 #include "Components/CapsuleComponent.h"
@@ -37,7 +43,7 @@ void APlayerCharacter::BeginPlay()
 void APlayerCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
+	
 	FHitResult Hit;
 	bool HitResult = false;
 
@@ -70,6 +76,7 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 
 	InputComponent->BindAxis("MoveForward", this, &APlayerCharacter::MoveForward);
 	InputComponent->BindAxis("MoveRight", this, &APlayerCharacter::MoveRight);
+	InputComponent->BindAction("Shoot", IE_Pressed, this, &APlayerCharacter::Shoot);
 }
 
 void APlayerCharacter::MoveForward(float AxisValue)
@@ -85,5 +92,36 @@ void APlayerCharacter::MoveRight(float AxisValue)
 	if (AxisValue != 0.0f)
 	{
 		AddMovementInput(FVector(0.0f, 1.0f, 0.0f), AxisValue);
+	}
+}
+
+void APlayerCharacter::Shoot()
+{
+	GetWorld()->SpawnActor<Abullet>(bullet_BP, GetActorLocation() + GetActorForwardVector(), GetActorRotation());
+}
+
+void APlayerCharacter::isHitByEnemy()
+{
+	if (PlayerHealth == 0)
+	{
+		SetActorHiddenInGame(true);
+		SetActorEnableCollision(false);
+		KillPlayer = true;
+	}
+	else
+	{
+		PlayerHealth -= 100;
+	}
+}
+
+void APlayerCharacter::OnOverlap(UPrimitiveComponent * OverlappedComponent, AActor * OtherActor,
+	UPrimitiveComponent * OtherComponent, int32 OtherBodyIndex,
+	bool bFromSweep, const FHitResult & SweepResult)
+{
+	if (OtherActor->IsA(AEnemyBullet::StaticClass()))
+	{
+		Cast<APlayerCharacter>(OtherActor)->isHitByEnemy();
+
+		Destroy();
 	}
 }

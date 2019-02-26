@@ -8,7 +8,6 @@ AEnemyDrone::AEnemyDrone()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-
 }
 
 // Called when the game starts or when spawned
@@ -39,5 +38,18 @@ void AEnemyDrone::Tick(float DeltaTime)
 		SetActorRotation(MoveDirection.Rotation());
 
 		CurrentTurnDelay = FMath::FRandRange(TurnDelayMin, TurnDelayMax);
+	}
+}
+
+void AEnemyDrone::isHit()
+{
+	if (enemyHealth == 0)
+	{
+		SetActorHiddenInGame(true);
+		SetActorEnableCollision(false);
+		killEnemy = true;
+	}
+	else {
+		enemyHealth -= 1;
 	}
 }

@@ -41,3 +41,16 @@ void AEnemyTurret::Tick(float DeltaTime)
 		CurrentTurnDelay = FMath::FRandRange(TurnDelayMin, TurnDelayMax);
 	}
 }
+
+void AEnemyTurret::isHit()
+{
+	if (turretHealth == 0)
+	{
+		SetActorHiddenInGame(true);
+		SetActorEnableCollision(false);
+		killTurret = true;
+	}
+	else {
+		turretHealth -= 1;
+	}
+}
