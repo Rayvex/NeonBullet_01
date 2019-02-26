@@ -95,3 +95,17 @@ void APlayerCharacter::Shoot()
 {
 	GetWorld()->SpawnActor<Abullet>(bullet_BP, GetActorLocation() + GetActorForwardVector(), GetActorRotation());
 }
+
+void APlayerCharacter::isHitByEnemy()
+{
+	if (PlayerHealth == 0)
+	{
+		SetActorHiddenInGame(true);
+		SetActorEnableCollision(false);
+		KillPlayer = true;
+	}
+	else
+	{
+		PlayerHealth -= 100;
+	}
+}

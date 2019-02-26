@@ -25,9 +25,9 @@ public:
 
 	void isHit();
 
-	bool yeetEnemy{false};
+	bool killEnemy{ false };
 
-	int enemyHealth{2};
+	int enemyHealth{ 2 };
 
 private:
 	// Called when the game starts or when spawned
@@ -37,7 +37,7 @@ private:
 	float Speed = 20.f;
 
 	UPROPERTY(EditAnywhere)
-	float TurnDelayMax = 4.f;
+	float TurnDelayMax = 3.f;
 
 	/*How long min till turn towards player*/
 	UPROPERTY(EditAnywhere)

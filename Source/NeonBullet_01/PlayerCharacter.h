@@ -23,9 +23,16 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	void MoveForward(float AxisValue);
+
 	void MoveRight(float AxisValue);
+
 	void Shoot();
-	void keepShooting();
+
+	void isHitByEnemy();
+
+	bool KillPlayer{ false };
+
+	int PlayerHealth{ 100 };
 
 	// FORCEINLINE class UdecalComponent* GetCursorToWorld() { return CursorToWorld; }
 

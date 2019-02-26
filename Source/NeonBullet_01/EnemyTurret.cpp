@@ -48,7 +48,7 @@ void AEnemyTurret::isHit()
 	{
 		SetActorHiddenInGame(true);
 		SetActorEnableCollision(false);
-		yeetTurret = true;
+		killTurret = true;
 	}
 	else {
 		turretHealth -= 1;

@@ -47,7 +47,7 @@ void AEnemyDrone::isHit()
 	{
 		SetActorHiddenInGame(true);
 		SetActorEnableCollision(false);
-		yeetEnemy = true;
+		killEnemy = true;
 	}
 	else {
 		enemyHealth -= 1;

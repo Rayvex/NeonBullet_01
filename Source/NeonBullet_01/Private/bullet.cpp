@@ -40,7 +40,6 @@ void Abullet::Tick(float DeltaTime)
 	{
 		this->Destroy();
 	}
-
 }
 
 void Abullet::OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor *OtherActor,
@@ -52,7 +51,9 @@ void Abullet::OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor *OtherA
 		Cast<AEnemyDrone>(OtherActor)->isHit();
 
 		Destroy();
-	} else if (OtherActor->IsA(AEnemyTurret::StaticClass()))
+	} 
+	
+	else if (OtherActor->IsA(AEnemyTurret::StaticClass()))
 	{
 		Cast<AEnemyTurret>(OtherActor)->isHit();
 

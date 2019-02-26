@@ -24,7 +24,7 @@ public:
 
 	void isHit();
 
-	bool yeetTurret{false};
+	bool killTurret{false};
 
 	int turretHealth{4};
 
