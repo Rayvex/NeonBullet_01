@@ -3,7 +3,6 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "bullet.h"
 #include "GameFramework/Character.h"
 #include "PlayerCharacter.generated.h"
 
@@ -16,6 +15,11 @@ public:
 	// Sets default values for this character's properties
 	APlayerCharacter();
 
+protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
+
+public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
@@ -23,34 +27,16 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	void MoveForward(float AxisValue);
-
 	void MoveRight(float AxisValue);
 
-	void Shoot();
-
-	void isHitByEnemy();
-
-	bool KillPlayer{ false };
-
-	int PlayerHealth{ 100 };
+	void FireGun();
 
 	// FORCEINLINE class UdecalComponent* GetCursorToWorld() { return CursorToWorld; }
 
 private:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
-
 	UPROPERTY(EditAnywhere, Category = "Char Func")
 	USceneComponent* OurVisibleComponent;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera", meta = (AllowPrivateAccess = "true"))
 	UDecalComponent* CursorToWorld;
-
-	UPROPERTY(EditDefaultsOnly)
-	TSubclassOf<Abullet> bullet_BP;
-
-	UFUNCTION()
-		void OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor *OtherActor,
-			UPrimitiveComponent *OtherComponent, int32 OtherBodyIndex,
-			bool bFromSweep, const FHitResult &SweepResult);
 };
