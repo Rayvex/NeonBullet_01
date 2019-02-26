@@ -4,6 +4,7 @@
 #include "NeonBullet_01.h"
 #include "EnemyDrone.h"
 #include "bullet.h"
+#include "EnemyBullet.h"
 #include "Kismet/GameplayStatics.h"
 #include "Engine/World.h"
 #include "Components/InputComponent.h"
@@ -107,5 +108,17 @@ void APlayerCharacter::isHitByEnemy()
 	else
 	{
 		PlayerHealth -= 100;
+	}
+}
+
+void APlayerCharacter::OnOverlap(UPrimitiveComponent * OverlappedComponent, AActor * OtherActor,
+	UPrimitiveComponent * OtherComponent, int32 OtherBodyIndex,
+	bool bFromSweep, const FHitResult & SweepResult)
+{
+	if (OtherActor->IsA(AEnemyBullet::StaticClass()))
+	{
+		Cast<APlayerCharacter>(OtherActor)->isHitByEnemy();
+
+		Destroy();
 	}
 }

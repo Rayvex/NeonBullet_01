@@ -21,10 +21,7 @@ private:
 
 	float TimeAlive{ 0 };
 
-	UFUNCTION()
-		void OnOverlap(UPrimitiveComponent* OverlappedComponent, ACharacter *OtherCharacter,
-			UPrimitiveComponent *OtherComponent, int32 OtherBodyIndex,
-			bool bFromSweep, const FHitResult &SweepResult);
+	
 
 public:
 	// Sets default values for this actor's properties

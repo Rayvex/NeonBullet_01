@@ -37,15 +37,5 @@ void AEnemyBullet::Tick(float DeltaTime)
 	}
 }
 
-void AEnemyBullet::OnOverlap(UPrimitiveComponent * OverlappedComponent, ACharacter * OtherCharacter,
-	UPrimitiveComponent * OtherComponent, int32 OtherBodyIndex,
-	bool bFromSweep, const FHitResult & SweepResult)
-{
-	if (OtherCharacter->IsA(ACharacter::StaticClass()))
-	{
-		Cast<APlayerCharacter>(OtherCharacter)->isHitByEnemy();
 
-		Destroy();
-	}
-}
 
