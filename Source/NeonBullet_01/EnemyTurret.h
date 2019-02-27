@@ -24,9 +24,7 @@ public:
 
 	void isHit();
 
-	bool killTurret{false};
-
-	int turretHealth{4};
+	int turretHealth{10};
 
 private:
 	// Called when the game starts or when spawned

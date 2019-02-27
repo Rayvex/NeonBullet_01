@@ -25,9 +25,7 @@ public:
 
 	void isHit();
 
-	// bool killEnemy{ false };
-
-	int enemyHealth{ 2 };
+	int enemyHealth{ 3 };
 
 private:
 	// Called when the game starts or when spawned
