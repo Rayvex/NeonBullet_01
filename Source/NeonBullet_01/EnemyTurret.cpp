@@ -46,9 +46,7 @@ void AEnemyTurret::isHit()
 {
 	if (turretHealth == 0)
 	{
-		SetActorHiddenInGame(true);
-		SetActorEnableCollision(false);
-		killTurret = true;
+		Destroy();
 	}
 	else {
 		turretHealth -= 1;

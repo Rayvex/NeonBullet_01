@@ -25,7 +25,7 @@ public:
 
 	void isHit();
 
-	bool killEnemy{ false };
+	// bool killEnemy{ false };
 
 	int enemyHealth{ 2 };
 

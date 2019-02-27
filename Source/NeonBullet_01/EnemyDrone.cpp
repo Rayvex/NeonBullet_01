@@ -45,9 +45,9 @@ void AEnemyDrone::isHit()
 {
 	if (enemyHealth == 0)
 	{
-		SetActorHiddenInGame(true);
-		SetActorEnableCollision(false);
-		killEnemy = true;
+		// SetActorHiddenInGame(true);
+		// SetActorEnableCollision(false);
+		Destroy();
 	}
 	else {
 		enemyHealth -= 1;
