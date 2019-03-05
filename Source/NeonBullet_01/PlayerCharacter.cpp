@@ -107,7 +107,7 @@ void APlayerCharacter::isHitByEnemy()
 	}
 	else
 	{
-		PlayerHealth -= 100;
+		PlayerHealth -= 10;
 	}
 }
 

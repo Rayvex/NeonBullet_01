@@ -32,7 +32,7 @@ public:
 
 	bool KillPlayer{ false };
 
-	int PlayerHealth{ 100 };
+	int PlayerHealth{ 10 };
 
 	// FORCEINLINE class UdecalComponent* GetCursorToWorld() { return CursorToWorld; }
 
