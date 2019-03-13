@@ -37,6 +37,12 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	FVector MoveDirection = FVector(1.f, 0.f, 0.f);
+
+	void isHit();
+
+	int enemyHealth{ 3 };
+
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
