@@ -1,6 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "EnemyDroneCharacter.h"
+#include "Engine/Engine.h"
 
 // Sets default values
 AEnemyDroneCharacter::AEnemyDroneCharacter()
@@ -15,6 +16,9 @@ void AEnemyDroneCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	MoveDirection = GetWorld()->GetFirstPlayerController()->GetPawn()->GetActorLocation() - GetActorLocation();
+	MoveDirection.Normalize(); //Smooth 
+	SetActorRotation(MoveDirection.Rotation());
 }
 
 // Called every frame

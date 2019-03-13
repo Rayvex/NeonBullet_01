@@ -3,6 +3,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "NeonBullet_01.h"
+#include "NeonBullet_01GameModeBase.h"
 #include "GameFramework/Character.h"
 #include "EnemyDroneCharacter.generated.h"
 
@@ -11,15 +13,27 @@ class NEONBULLET_01_API AEnemyDroneCharacter : public ACharacter
 {
 	GENERATED_BODY()
 
-public:
-	// Sets default values for this character's properties
-	AEnemyDroneCharacter();
+private:
+	UPROPERTY(EditAnywhere)
+		float Speed = 20.f;
+
+	UPROPERTY(EditAnywhere)
+		float TurnDelayMax = 3.f;
+
+	/*How long min till turn towards player*/
+	UPROPERTY(EditAnywhere)
+		float TurnDelayMin = 1.f;
+
+	float CurrentTurnDelay = 0.f;
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 public:	
+	// Sets default values for this character's properties
+	AEnemyDroneCharacter();
+
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
