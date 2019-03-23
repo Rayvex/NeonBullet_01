@@ -46,4 +46,31 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite,
+		Category = "DroneChar", meta = (AllowPrivateAccess = "true"))
+		AActor *character_01;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly,
+		Category = "DroneChar", meta = (AllowPrivateAccess = "true"))
+		FVector character_01_location;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite,
+		Category = "DroneChar", meta = (AllowPrivateAccess = "true"))
+		FVector start_location_01 = FVector(0, 0, 20);
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite,
+		Category = "DroneChar", meta = (AllowPrivateAccess = "true"))
+		FVector goal_location_01;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite,
+		Category = "DroneChar", meta = (AllowPrivateAccess = "true"))
+		AActor *goal_actor_location_01;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite,
+		Category = "General", meta = (AllowPrivateAccess = "true"))
+		float speed1 = 0.01f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite,
+		Category = "General", meta = (AllowPrivateAccess = "true"))
+		float accuracy;
 };
